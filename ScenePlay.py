@@ -10,28 +10,27 @@ from Baddies import BaddieMgr
 from Goodies import GoodieMgr
 from Constants import *
 
-def showCustomYesNoDialog(theWindow, theText):
-    oDialogBackground = pygwidgets.Image(theWindow, (40, 250),
-                                            'images/dialog.png')
-    oPromptDisplayText = pygwidgets.DisplayText(theWindow, (0, 290),
-                                            theText, width=WINDOW_WIDTH,
-                                            justified='center', fontSize=36)
+def showCustomYesNoDialog(theWindow: pygame.Surface, theText: str) -> bool:
+    oDialogBackground = pygwidgets.Image(theWindow, (40, 250), 'images/dialog.png')
+    oPromptDisplayText = pygwidgets.DisplayText(theWindow, (0, 290), theText,
+                                              width=WINDOW_WIDTH,
+                                              justified='center', fontSize=36)
 
     oYesButton = pygwidgets.CustomButton(theWindow, (320, 370),
-                                            'images/gotoHighScoresNormal.png',
-                                            over='images/gotoHighScoresOver.png',
-                                            down='images/gotoHighScoresDown.png',
-                                            disabled='images/gotoHighScoresDisabled.png')
+                                       'images/gotoHighScoresNormal.png',
+                                       over='images/gotoHighScoresOver.png',
+                                       down='images/gotoHighScoresDown.png',
+                                       disabled='images/gotoHighScoresDisabled.png')
 
     oNoButton = pygwidgets.CustomButton(theWindow, (62, 370),
-                                            'images/noThanksNormal.png',
-                                            over='images/noThanksOver.png',
-                                            down='images/noThanksDown.png',
-                                            disabled='images/noThanksDisabled.png')
+                                      'images/noThanksNormal.png',
+                                      over='images/noThanksOver.png',
+                                      down='images/noThanksDown.png',
+                                      disabled='images/noThanksDisabled.png')
 
     choiceAsBoolean = pyghelpers.customYesNoDialog(theWindow,
-                                            oDialogBackground, oPromptDisplayText,
-                                            oYesButton, oNoButton)
+                                                oDialogBackground, oPromptDisplayText,
+                                                oYesButton, oNoButton)
     return choiceAsBoolean
 
 BOTTOM_RECT = (0, GAME_HEIGHT + 1, WINDOW_WIDTH,
